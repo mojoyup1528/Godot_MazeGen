@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://addons/mazeGen3D/maze.gd" type="Script" id=1]
+[ext_resource path="res://addons/mazeGen3D/3Dscene.gd" type="Script" id=3]
+
+[sub_resource type="Environment" id=1]
+ambient_light_color = Color( 0.388235, 0.388235, 0.388235, 1 )
+
+[node name="3dScene" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="WorldEnvironment"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0 )
+
+[node name="maze" type="Spatial" parent="."]
+script = ExtResource( 1 )
